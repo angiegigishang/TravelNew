@@ -1,6 +1,6 @@
 <template>
 	<div class="icons">
-		<swiper>
+		<swiper :options="swiperOption">
 			<swiper-slide v-for="(page, index) of pages" :key="index">
 				<div class="icon" 
 				     v-for="item of page"
@@ -18,51 +18,20 @@
 <script>
 export default {
 	name: "Icons",
+	props: {
+		list: Array
+	},
 	data () {
 		return {
-			iconList: [{
-				id: '0001',
-				imgUrl: 'https://m.tuniucdn.com/fb2/t1/G1/M00/4D/2B/Cii9EViHDl2IIxCdAAADq7KkLrYAAHCHwP__D0AAAPD653.png',
-				desc: '景点门票景点门票景点门票景点门票'
-			}, {
-				id: '0002',
-				imgUrl: 'https://m.tuniucdn.com/fb2/t1/G1/M00/53/45/Cii-U1iHECaIK56RAAADBlN4IkAAAHGXwP__OIAAAMe659.png',
-				desc: '出游季节'
-			}, {
-				id: '0003',
-				imgUrl: 'https://m.tuniucdn.com/fb2/t1/G1/M00/57/67/Cii9EViHDvSIWCPIAAAD0uNfXYcAAHIrQP__BYAAAPq125.png',
-				desc: '一日游'
-			}, {
-				id: '0004',
-				imgUrl: 'https://m.tuniucdn.com/fb2/t1/G1/M00/58/D2/Cii9EFiHENmISJZBAAAHxYKJjcQAAHJbwP_98QAAAg8312.png',
-				desc: '必游榜单'
-			}, {
-				id: '0005',
-				imgUrl: 'https://m.tuniucdn.com/fb2/t1/G2/M00/DB/6C/Cii-TFiHDqaIOwaUAAAEizla0WIAAG3fgP_-1wAAASk090.png',
-				desc: '免费wifi'
-			}, {
-				id: '0006',
-				imgUrl: 'https://m.tuniucdn.com/fb2/t1/G1/M00/56/52/Cii9EFiHDe2IcKyAAAAEM6qennYAAHH-QP_-7IAAARO441.png',
-				desc: '购物胜地'
-			}, {
-				id: '0007',
-				imgUrl: 'https://m.tuniucdn.com/fb2/t1/G1/M00/56/52/Cii9EFiHDe2IcKyAAAAEM6qennYAAHH-QP_-7IAAARO441.png',
-				desc: '购物胜地'
-			}, {
-				id: '0008',
-				imgUrl: 'https://m.tuniucdn.com/fb2/t1/G1/M00/56/52/Cii9EFiHDe2IcKyAAAAEM6qennYAAHH-QP_-7IAAARO441.png',
-				desc: '购物胜地'
-			}, {
-				id: '0009',
-				imgUrl: 'https://m.tuniucdn.com/fb2/t1/G1/M00/56/52/Cii9EFiHDe2IcKyAAAAEM6qennYAAHH-QP_-7IAAARO441.png',
-				desc: '购物胜地'
-			}]
+			swiperOption: {
+				autoplay: false
+			}
 		}
 	},
 	computed: {
 		pages () {
 			const pages = []
-			this.iconList.forEach( (item, index) => {
+			this.list.forEach( (item, index) => {
 				const page = Math.floor(index / 8)
 				if(!pages[page]) {
 					pages[page] = []

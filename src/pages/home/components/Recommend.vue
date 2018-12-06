@@ -3,7 +3,7 @@
 		<div class="title">热销推荐</div>
 		<ul>
 			<li class="item border-bottom" 
-			    v-for="item of recommendList"
+			    v-for="item of list"
 			    :key="item.id">
 				<img class="item-img" :src='item.imgUrl'/>
 				<div class="item-info">
@@ -19,20 +19,8 @@
 <script>
 export default {
 	name: 'HomeRecommend',
-	data () {
-		return {
-			recommendList: [{
-				id: '0001',
-				imgUrl: 'https://imgs.qunarzz.com/p/tts9/1612/c1/785093f3febae802.jpg_r_390x260x90_3f9ae585.jpg',
-				title: '大连圣亚海洋世界',
-				desc: '浪漫大连首战，浪漫的海洋主题乐园'
-			}, {
-				id: '0002',
-				imgUrl: 'https://imgs.qunarzz.com/p/tts9/1612/c1/785093f3febae802.jpg_r_390x260x90_3f9ae585.jpg',
-				title: '大连圣亚海洋世界',
-				desc: '浪漫大连首战，浪漫的海洋主题乐园'
-			}]
-		}		
+	props: {
+		list: Array
 	}
 }
 </script>
@@ -54,9 +42,9 @@ export default {
 			height: 1.7rem
 			padding: .1rem
 		.item-info
-			min-width: 0
 			flex: 1
 			padding: .1rem
+			min-width: 0
 			.item-title
 				line-height: .54rem
 				font-size: .32rem
@@ -67,9 +55,10 @@ export default {
 				ellipsis()
 			.item-button
 				line-height: .44rem
-				margin-top: .2rem
+				margin-top: .17rem
 				color: #fff
 				background: #ff9300
 				padding: 0 .2rem
 				border-radius: .06rem
+				ellipsis()
 </style>
