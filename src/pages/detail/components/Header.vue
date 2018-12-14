@@ -31,6 +31,7 @@ export default {
 	methods: {
 		handleScroll () {
 			const top = document.documentElement.scrollTop
+			console.log('2')
 			if (top > 60) {
 				let opacity = top/140
 				opacity = opacity > 1 ? 1 : opacity
@@ -43,12 +44,16 @@ export default {
 			}
 		}
 	},
-	activated () {
+	mounted () {
+		console.log('1')
+		window.addEventListener('scroll', this.handleScroll)
+	}/*,
+	activated () {	
 		window.addEventListener('scroll', this.handleScroll)
 	},
 	deactivated () {
 		window.removeEventListener('scroll', this.handleScroll)
-	}
+	}*/
 }
 </script>
 
@@ -69,6 +74,7 @@ export default {
 			font-size: .4rem
 			
 	.header-fixed 
+		z-index: 2
 		position: fixed
 		top: 0
 		left: 0
